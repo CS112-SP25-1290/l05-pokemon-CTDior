@@ -9,9 +9,8 @@ public class PokemonBox {
 
 	// CONSTRUCTORS
 	public PokemonBox(Pokemon[] caught) {
-		if(caught == null || caught.length == 0) {
-			System.out.println("ERROR: Invalid Pokemon array provided to PokemonBox. Exiting program.");
-			System.exit(0);
+		if (caught == null || caught.length == 0) {
+			throw new IllegalArgumentException("ERROR: Invalid Pokémon array provided.");
 		}
 		this.numCaught = caught.length;
 		this.caught = this.deepCopyArray(caught, this.numCaught*2);
@@ -40,6 +39,9 @@ public class PokemonBox {
 	}
 
 	public Pokemon getPokemon(int location) {
+		if (location < 0 || location >= numCaught) {
+			throw new IndexOutOfBoundsException("ERROR: Invalid Pokémon location.");
+		}
 		return this.caught[location];
 	}
 

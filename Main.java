@@ -9,10 +9,10 @@ class Main {
 		Pokemon[] caught = {
 			new Pokemon("Pikachu", "Electric"),
 			new Pokemon("Bulbasaur", "Grass", "Poison"),
-			new Pokemon("Charmeleon", "Fire"),
+			new Pokemon("Blaziken", "Fire", "Fighting"),
 			new Pokemon("Squirtle", "Water"),
-			new Pokemon("Butterfree", "Bug", "Flying"),
-			new Pokemon("Pidgeotto", "Normal", "Flying")
+			new Pokemon("Rayquaza", "Dragon", "Flying"),
+			new Pokemon("Houndoom", "Dark", "Fire")
 		};
 
 		// WELCOME

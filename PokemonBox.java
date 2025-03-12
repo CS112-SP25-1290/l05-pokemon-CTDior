@@ -58,18 +58,22 @@ public class PokemonBox {
 	}
 
 	// MUTATOR/SETTER METHODS
-	public void add(Pokemon newPoke) {
-		//new pokemon,  add to partially filled array
-		//but first check if box is full
-		if(this.numCaught == this.caught.length) {
-			//if full, then grow array *2 and copy contents over
-			this.caught = this.deepCopyArray(this.caught, this.numCaught*2);
+	public void add(Pokemon newPoke) throws PokemonAlreadyExistsException {
+		// Check if Pokémon already exists in the box
+		if (hasPokemon(newPoke.getName())) {
+			throw new PokemonAlreadyExistsException("ERROR! Pokémon already exists in the box.");
 		}
-
-		//then add new caught pokemon
+	
+		// If the box is full, grow the array *2 and copy contents over
+		if (this.numCaught == this.caught.length) {
+			this.caught = this.deepCopyArray(this.caught, this.numCaught * 2);
+		}
+	
+		// Add new Pokémon to the box
 		this.caught[this.numCaught] = new Pokemon(newPoke);
 		this.numCaught++;
 	}
+	
 	
 	// OTHER REQUIRED METHODS
 	public String toString() {
